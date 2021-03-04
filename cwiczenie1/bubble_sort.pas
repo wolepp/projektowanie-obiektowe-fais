@@ -9,7 +9,7 @@ VAR
 
 PROCEDURE sort;
 BEGIN
-  j:=N;
+  j:=N-1;
   While j > 0 Do
   Begin
     For i:=1 To j Do
