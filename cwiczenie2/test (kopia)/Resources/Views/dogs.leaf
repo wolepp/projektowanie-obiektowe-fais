@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+
+<head>
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> -->
+    <meta charset="utf-8">
+    <title>Dogs CRUD</title>
+</head>
+
+<body class="container">
+    <h1 class="text-center">Dogs CRUD </h1>
+    <div class="row">
+
+        <div class="col-xs-12 col-sm-3">
+            <h2>Create</h2>
+        </div>
+        <form method="POST" action="/dog/create">
+            <div class="input-group form-group">
+                <input type="text" placeholder="Name" name="name" class="form-control">
+                <input type="text" placeholder="Owner_id" name="owner_id" class="form-control">
+                <input type="text" placeholder="Breed_id" name="breed_id" class="form-control">
+            </div>
+            <div>
+                <span class="input-group-btn">
+                    <input class="btn btn-success" type="submit" value="create" />
+                </span>
+            </div>
+        </form>
+
+        <div class="col-xs-12 col-sm-3">
+            <h2>Read</h2>
+            #for(dog in dogList):
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="id" value="#(dog.id)" disabled>
+                        <input type="text" class="form-control" name="name" value="#(dog.name)" disabled>
+                        <input type="text" class="form-control" name="owner_id" value="#(dog.owner_id)" disabled>
+                        <input type="text" class="form-control" name="breed_id" value="#(dog.breed_id)" disabled>
+                    </div>
+                </div>
+            </div>
+            #endfor
+        </div>
+
+        <div class="col-xs-12 col-sm-3">
+            <h2>Update</h2>
+            #for(dog in dogList):
+            <form method="POST" action="/dog/update/#(dog.id)">
+                <div class="input-group form-group">
+                    <input type="text" class="form-control" name="id" value="#(dog.id)">
+                    <input type="text" class="form-control" name="name" value="#(dog.name)">
+                    <input type="text" class="form-control" name="owner_id" value="#(dog.owner_id)">
+                    <input type="text" class="form-control" name="breed_id" value="#(dog.breed_id)">
+                </div>
+                <div>
+                    <span class="input-group-btn">
+                        <input class="btn btn-primary" type="submit" value="update" />
+                    </span>
+                </div>
+            </form>
+            #endfor
+        </div>
+
+        <div class="col-xs-12 col-sm-3">
+            <h2>Delete</h2>
+            #for(dog in dogList):
+            <form method="POST" action="/dog/delete/#(dog.id)">
+                <div class="input-group form-group">
+                    <input type="text" class="form-control" name="id" value="#(dog.id)" disabled>
+                    <input type="text" class="form-control" name="name" value="#(dog.name)" disabled>
+                    <input type="text" class="form-control" name="owner_id" value="#(dog.owner_id)" disabled>
+                    <input type="text" class="form-control" name="owner_id" value="#(dog.breed_id)" disabled>
+                </div>
+                <div>
+                    <span class="input-group-btn">
+                        <input class="btn btn-danger" type="submit" value="delete" />
+                    </span>
+                </div>
+            </form>
+            #endfor
+        </div>
+    </div>
+</body>
+
+</html>
