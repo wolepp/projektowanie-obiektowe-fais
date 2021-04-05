@@ -1,0 +1,13 @@
+version: "3.7"
+services:
+  cw2:
+    image: kprzystalski/projobj2
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./:/home/kprzystalski/linked_dir
+    ports:
+      - 8000:8000
+      - 38531:38351
+      - 8080:8080
+      - 5000:5000
