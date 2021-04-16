@@ -1,0 +1,12 @@
+version: "3.7"
+services:
+  dogapp:
+    image: kprzystalski/projobj3
+    command: sh -c "cd linked_dir
+      && go run main.go"
+    # stdin_open: true
+    # tty: true
+    volumes:
+      - ./:/home/kprzystalski/linked_dir
+    ports:
+      - 5000:5000
