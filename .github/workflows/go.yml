@@ -19,4 +19,8 @@ jobs:
         go-version: 1.15
 
     - name: Build
-      run: go build -v ./...
+      run: |
+        mkdir -p /home/runner/go/
+        mv cwiczenie3 /home/runner/go/
+        cd /home/runner/go/cwiczenie3 && go mod download
+        go build /home/runner/go/cwiczenie3/main.go
