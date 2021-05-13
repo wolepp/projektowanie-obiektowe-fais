@@ -1,0 +1,14 @@
+version: "3.7"
+services:
+  authorization:
+    image: kprzystalski/projobj4
+    command: sh -c "cd linked_dir/authorization 
+        && ./gradlew bootRun"
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./:/home/kprzystalski/linked_dir
+    ports:
+      - 58080:58080
+    environment:
+      - JAVA_HOME=/home/kprzystalski/.sdkman/candidates/java/current

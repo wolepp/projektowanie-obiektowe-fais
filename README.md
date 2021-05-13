@@ -8,3 +8,11 @@ Sortowanie bąbelkowe w Pascal
 
 Aplikacja w Vapor
 
+## Ćwiczenie 3 
+
+Singleton w Echo Go
+
+## Ćwiczenie 4
+
+Autoryzacja w Kotlin
+
