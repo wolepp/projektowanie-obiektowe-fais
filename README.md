@@ -16,3 +16,6 @@ Singleton w Echo Go
 
 Autoryzacja w Kotlin
 
+## Ćwiczenie 7
+
+Git hooks

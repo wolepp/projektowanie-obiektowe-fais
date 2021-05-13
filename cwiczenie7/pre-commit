@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+git diff --name-only --cached --relative | grep '\.kt[s"]\?$' | xargs ktlint --relative .
+if [ $? -eq 0 ]; then 
+    echo "Linting OK"
+else
+    echo "Found linting errors, please fix your code"
+    exit 1;
+fi
