@@ -1,11 +1,6 @@
 // swift-tools-version:5.2
 import PackageDescription
 
-let vapor =  "https://github.com/vapor/vapor.git"
-let fluent = "https://github.com/vapor/fluent.git"
-let fluentSqliteDriver = "https://github.com/vapor/fluent-sqlite-driver.git"
-let leafDriver = "https://github.com/vapor/leaf.git"
-
 let package = Package(
     name: "test",
     platforms: [
@@ -13,10 +8,10 @@ let package = Package(
     ],
     dependencies: [
         // 💧 A server-side Swift web framework.
-        .package(url: vapor, from: "4.0.0"),
-        .package(url: fluent, from: "4.0.0"),
-        .package(url: fluentSqliteDriver, from: "4.0.0"),
-        .package(url: leafDriver, from: "4.0.0"),
+        .package(url: "https://github.com/vapor/vapor.git", from: "4.0.0"),
+        .package(url: "https://github.com/vapor/fluent.git", from: "4.0.0"),
+        .package(url: "https://github.com/vapor/fluent-sqlite-driver.git", from: "4.0.0"),
+        .package(url: "https://github.com/vapor/leaf.git", from: "4.0.0"),
     ],
     targets: [
         .target(
