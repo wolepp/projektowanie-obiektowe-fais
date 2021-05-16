@@ -8,10 +8,10 @@ final class Dog: Model, Content {
     var id: UUID?
 
     @Field(key: "owner_id")
-    var owner_id: UUID
+    var ownerId: UUID
 
     @Field(key: "breed_id")
-    var breed_id: UUID
+    var breedId: UUID
 
     @Field(key: "name")
     var name: String
@@ -20,10 +20,10 @@ final class Dog: Model, Content {
         // protocol 'Fields' requires initializer 'init()' with type '()'
     }
 
-    init(id: UUID? = nil, owner_id: String, breed_id: String, name: String) {
+    init(id: UUID? = nil, ownerId: String, breedId: String, name: String) {
         self.id = id
-        self.owner_id = UUID(uuidString: owner_id)!
-        self.breed_id = UUID(uuidString: breed_id)!
+        self.ownerId = UUID(uuidString: ownerId)!
+        self.breedId = UUID(uuidString: breedId)!
         self.name = name
     }
 }
