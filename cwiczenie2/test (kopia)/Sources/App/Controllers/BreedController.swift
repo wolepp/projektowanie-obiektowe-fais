@@ -3,7 +3,7 @@ import Vapor
 
 struct BreedController: RouteCollection {
 
-    static let path = "/breeds"
+    static let path = "breeds"
 
     func boot(routes: RoutesBuilder) throws {
         // routing made in routes.swift
@@ -20,7 +20,7 @@ struct BreedController: RouteCollection {
     func create(req: Request) throws -> EventLoopFuture<Response> {
         let breed = try req.content.decode(Breed.self)
         return breed.save(on: req.db).map { _ in 
-            return req.redirect(to: BreedController.path)
+            return req.redirect(to: "/" + BreedController.path)
         }
     }
 
@@ -33,7 +33,7 @@ struct BreedController: RouteCollection {
                 breed.name = input.name
                 breed.color = input.color
                 return breed.save(on: req.db).map { _ in
-                    return req.redirect(to: BreedController.path)
+                    return req.redirect(to: "/" + BreedController.path)
                 }
             }
     }
@@ -43,7 +43,7 @@ struct BreedController: RouteCollection {
             .unwrap(or: Abort(.notFound))
             .flatMap { $0.delete(on: req.db) }
             .map { _ in
-                return req.redirect(to: BreedController.path)
+                return req.redirect(to: "/" + BreedController.path)
             }
     }
 }
