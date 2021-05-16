@@ -10,7 +10,9 @@ final class Owner: Model, Content {
     @Field(key: "name")
     var name: String
 
-    init() { }
+    init() { 
+        // protocol 'Fields' requires initializer 'init()' with type '()'
+    }
 
     init(id: UUID? = nil, name: String) {
         self.id = id

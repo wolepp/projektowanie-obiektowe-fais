@@ -13,7 +13,9 @@ final class Breed: Model, Content {
     @Field(key: "color")
     var color: String
 
-    init() { }
+    init() { 
+        // protocol 'Fields' requires initializer 'init()' with type '()'
+    }
 
     init(id: UUID? = nil, name: String, color: String) {
         self.id = id

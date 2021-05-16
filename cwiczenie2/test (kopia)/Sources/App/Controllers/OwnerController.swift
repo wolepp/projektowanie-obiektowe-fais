@@ -20,7 +20,7 @@ struct OwnerController: RouteCollection {
     func create(req: Request) throws -> EventLoopFuture<Response> {
         let owner = try req.content.decode(Owner.self)
         return owner.save(on: req.db).map { _ in 
-            return req.redirect(to: "/owners")
+            return req.redirect(to: "OwnerController.path")
         }
     }
 
@@ -32,7 +32,7 @@ struct OwnerController: RouteCollection {
                 owner.id = input.id
                 owner.name = input.name
                 return owner.save(on: req.db).map { _ in
-                    return req.redirect(to: "/owners")
+                    return req.redirect(to: "OwnerController.path")
                 }
             }
     }
@@ -42,7 +42,7 @@ struct OwnerController: RouteCollection {
             .unwrap(or: Abort(.notFound))
             .flatMap { $0.delete(on: req.db) }
             .map { _ in
-                return req.redirect(to: "/owners")
+                return req.redirect(to: "OwnerController.path")
             }
     }
 }

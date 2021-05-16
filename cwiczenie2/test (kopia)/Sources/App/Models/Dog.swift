@@ -16,7 +16,9 @@ final class Dog: Model, Content {
     @Field(key: "name")
     var name: String
 
-    init() { }
+    init() { 
+        // protocol 'Fields' requires initializer 'init()' with type '()'
+    }
 
     init(id: UUID? = nil, owner_id: String, breed_id: String, name: String) {
         self.id = id
