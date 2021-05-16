@@ -8,6 +8,7 @@ class AuthorizationApplicationTests {
 
 	@Test
 	fun contextLoads() {
+		// no test here
 	}
 
 }
