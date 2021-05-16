@@ -34,4 +34,7 @@ func routes(_ app: Application) throws {
     app.post("breed", "create", use: breedController.create)
     app.post("breed", "update", ":id", use: breedController.update)
     app.post("breed", "delete", ":id", use: breedController.delete)
+    // try app.register(collection: DogController())
+    // try app.register(collection: OwnerController())
+    // try app.register(collection: BreedController())
 }

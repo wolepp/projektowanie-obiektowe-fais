@@ -2,7 +2,12 @@ import Fluent
 import Vapor
 
 struct OwnerController: RouteCollection {
-    func boot(routes: RoutesBuilder) throws {}
+
+    static let path = "/owners"
+
+    func boot(routes: RoutesBuilder) throws {
+        // routing made in routes.swift
+    }
 
     func list(req: Request) throws -> EventLoopFuture<View> {
         let allOwners = Owner.query(on: req.db).all()

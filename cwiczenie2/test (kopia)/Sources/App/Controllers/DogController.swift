@@ -2,7 +2,12 @@ import Fluent
 import Vapor
 
 struct DogController: RouteCollection {
-    func boot(routes: RoutesBuilder) throws {}
+
+    static let path = "/dogs"
+
+    func boot(routes: RoutesBuilder) throws {
+        // routes made in routes.swift
+    }
 
     func list(req: Request) throws -> EventLoopFuture<View> {
         let allDogs = Dog.query(on: req.db).all()
@@ -15,7 +20,7 @@ struct DogController: RouteCollection {
     func create(req: Request) throws -> EventLoopFuture<Response> {
         let dog = try req.content.decode(Dog.self)
         return dog.save(on: req.db).map { _ in 
-            return req.redirect(to: "/dogs")
+            return req.redirect(to: DogController.path)
         }
     }
 
@@ -29,7 +34,7 @@ struct DogController: RouteCollection {
                 dog.breed_id = input.breed_id
                 dog.name = input.name
                 return dog.save(on: req.db).map { _ in
-                    return req.redirect(to: "/dogs")
+                    return req.redirect(to: DogController.path)
                 }
             }
     }
@@ -39,7 +44,7 @@ struct DogController: RouteCollection {
             .unwrap(or: Abort(.notFound))
             .flatMap { $0.delete(on: req.db) }
             .map { _ in
-                return req.redirect(to: "/dogs")
+                return req.redirect(to: DogController.path)
             }
     }
 }
