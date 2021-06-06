@@ -27,8 +27,8 @@ jobs:
         
     - name: Create and start virtual environment
       run: |
-        python -m venv flask
-        source flask/bin/activate
+        python -m venv venv
+        source venv/bin/activate
       working-directory: ${{env.working-directory}}
       
     - name: Install dependencies
@@ -38,10 +38,10 @@ jobs:
     - name: Upload artifact for deployment jobs
       uses: actions/upload-artifact@v2
       with:
-        name: flaskhello
+        name: python-app
         path: |
           .
-          !flask/
+          !venv/
       
   deploy:
     runs-on: ubuntu-latest
@@ -54,13 +54,13 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v2
         with:
-          name: flaskhello
-          path: .	
+          name: python-app
+          path: .
 
       - name: Run Azure webapp deploy action using publish profile credentials
         uses: azure/webapps-deploy@v2
         with:
-          app-name: flask-hello
-          slot-name: Production
+          app-name: 'flask-hello'
+          slot-name: 'production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_63542B8178FB4FD9BEBC19220FA2C6B0 }}
 
