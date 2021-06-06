@@ -11,6 +11,8 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    env:
+      working-directory: ./cwiczenie8
 
     steps:
     # checkout the repo
