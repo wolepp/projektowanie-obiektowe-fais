@@ -19,3 +19,7 @@ Autoryzacja w Kotlin
 ## Ćwiczenie 7
 
 Git hooks
+
+## Ćwiczenie 8
+
+Chmura
